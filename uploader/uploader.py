@@ -35,7 +35,8 @@ def upload_file(path):
     name = path.split("/")[-1]
     with open(path, 'rb') as data:
         try:
-            client.put_file(name, data)
+            dateName = time.strftime("%Y-%m-%d") + "/" + name
+            client.put_file(dateName, data)
         except Exception as e:
             logging.exception(e)
         else:
